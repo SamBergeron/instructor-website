@@ -2,18 +2,20 @@
 
 <!-- Le javascript -->
 <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"/>
-<script>window.jQuery || document.write('&lt;script src="/static/js/jquery-1.7.2.min.js"&gt;&lt;\/script&gt;')</script>
-<!-- Bootstrap jQuery plugins compiled and minified -->
-<script src="/static/js/bootstrap.js"/>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
 <script>
-      $(document).ready(function(){
+    window.jQuery || document.write('&lt;script src="/static/js/jquery-1.7.2.min.js"&gt;&lt;\/script&gt;')
+</script>
+<!-- Bootstrap jQuery plugins compiled and minified -->
+<script src="/static/js/bootstrap.min.js" />
+<script>
+    $(document).ready(function() {
         $('.carousel').carousel({
-          interval: 4000
+            interval: 4000
         });
-      });
+    });
 
-      $(document).ready(function() {
+    $(document).ready(function() {
         $('.navbar li').click(function(e) {
             $('.navbar li.active').removeClass('active');
             var $this = $(this);
@@ -22,53 +24,59 @@
             }
             e.preventDefault();
         });
-      });
+    });
 </script>
 
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Home</title>
 
     <!-- Bootstrap -->
-    <link href="/static/css/bootstrap.css" rel="stylesheet"/>
-    <link href="/static/css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" />
+    <link href="/static/css/bootstrap-theme.css" rel="stylesheet" />
     <style type="text/css">
         body {
-        padding-top: 60px;
-        padding-bottom: 40px;
+            padding-top: 60px;
+            padding-bottom: 40px;
         }
     </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar">
-<div class="navbar-wrapper">
-    <nav class="navbar navbar-fixed-top navbar-default" role="navigation" id="mainNavbarId">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse-id">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <p><a class="navbar-brand" href="#">Sam Bergeron
-                    <extra-small>Ski instructor</extra-small></a></p>
-            </div>
+    <div class="navbar-wrapper">
+        <nav class="navbar navbar-fixed-top navbar-default" role="navigation" id="mainNavbarId">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse-id">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <p><a class="navbar-brand" href="#">Sam Bergeron
+                    <extra-small>Ski instructor</extra-small></a>
+                    </p>
+                </div>
 
-            <div class="collapse navbar-collapse" id="navbar-collapse-id">
-                <ul class="nav navbar-nav">
-                    <li class="active" ><a href="#">Home</a></li>
-                    <li><a href="#profile" >Profile</a></li>
-                    <li><a href="#contact" >Contact</a></li>
-                    <li><a href="#blog" >Latest news</a></li>
-                </ul><!-- /.nav -->
+                <div class="collapse navbar-collapse" id="navbar-collapse-id">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a>
+                        </li>
+                        <li><a href="#profile">Profile</a>
+                        </li>
+                        <li><a href="#contact">Contact</a>
+                        </li>
+                        <li><a href="#blog">Latest news</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav -->
+                </div>
             </div>
-        </div>
-    </nav>
-</div>
+        </nav>
+    </div>
 
     <!--  Carousel -->
     <div id="this-carousel-id" class="carousel slide" data-ride="carousel">
@@ -93,101 +101,119 @@
                 </div>
             </div>
             <div class="item">
-                    <img class="img-responsive" src="/static/img/banff.jpg" alt="Slide 4" />
+                <img class="img-responsive" src="/static/img/banff.jpg" alt="Slide 4" />
                 <div class="carousel-caption">
                     <p>Lake Louise, Alberta, Canada</p>
                 </div>
             </div>
-        </div><!-- .carousel-inner -->
+        </div>
+        <!-- .carousel-inner -->
         <!--  next and previous controls here
               href values must reference the id for this carousel -->
         <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
         <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
-    </div><!-- .carousel -->
+    </div>
+    <!-- .carousel -->
     <!-- end carousel -->
 
-    <p class="lead lead-large"/>
+    <p class="lead lead-large" />
 
-<div class="container container-fluid">
-    <!-- Example row of columns -->
-    <div class="row" id="profile">
+    <div class="container container-fluid">
+        <!-- Example row of columns -->
+        <div class="row" id="profile">
+            <hr/>
+            <div class="col-md-4">
+                <img class="img" src="/static/img/SamFace.jpg" />
+            </div>
+            <div class="col-md-8">
+                <p class="text-left">
+                    <h2 class="text-left">Sam Bergeron</h2>
+                    <p class="text-left">Experienced CSIA Instructor out of Montreal, Quebec, Canada. Sam has been teaching skiing for over 10 years to anyone ready to learn. Most recently he's taken home to Revelstoke Mountain Resort where he trains fellow instructors and
+                        guides clients around the mountain. He has experience teaching on and ripping up east coast icy groomers, New Zealand's rugged southern alps, and that good old BC powder. Passionate about progression and the ever evolving nature
+                        of skiing, Sam has decided to focus his own skiing on riding harder, more technical lines in the backcountry, where his posed and practical approach to skiing has proven to be effective.
+                        <br/>
+                        <br/>Sam is a level 3 instructor for the Canadian Ski Instructor Association and a level 2 Canadian Ski Coach Federation race coach. He has been honing his skills to take the infamous CSIA level 4 course this year in the hopes of becoming
+                        one of the youngest fully accredited instructor in Canada. In the mean time, you can always find Sam on his days off trying to find remaining powder stashes, ski touring to the nearest (or furthest, depending on the day) peak in
+                        view or hanging around the base of the resort looking to meet new people to ride with.
+                        <br/>
+                        <br/>If you're looking to perfect your technique, or to have a tour of the mountain follow the link.
+                    </p>
+                    <p class="text-center"><a class="btn btn-large btn-link" href="#contact">Contact</a>
+                    </p>
+                </p>
+            </div>
+        </div>
+
         <hr/>
-        <div class="col-md-4">
-            <img class="img" src="/static/img/SamFace.jpg"/>
+
+        <div class="row panel panel-default">
+            <div class="panel-heading" type="button" data-toggle="collapse" data-target="#collapseFirstVid">
+                <h4 class="panel-title" class="collapsed">
+                    Little video? (click)
+                </h4>
+            </div>
+            <div class="panel-collapse collapse" id="collapseFirstVid">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/tYGPH0xkSS0"></iframe>
+                </div>
+            </div>
         </div>
-        <div class="col-md-8">
-            <p class="text-left">
-            <h2 class="text-left">Sam Bergeron</h2>
-            <p class="text-left">Experienced CSIA Instructor out of Montreal, Quebec, Canada. Sam has been teaching skiing for over 10 years
-                to anyone ready to learn. Most recently he's taken home to Revelstoke Mountain Resort where he trains fellow instructors and
-                guides clients around the mountain. He has experience teaching on and ripping up east coast icy groomers, New Zealand's
-                rugged southern alps, and that good old BC powder. Passionate about progression and the ever evolving nature
-                of skiing, Sam has decided to focus his own skiing on riding harder, more technical lines in the backcountry, where his posed
-                and practical approach to skiing has proven to be effective.<br/><br/>
-                Sam is a level 3 instructor for the Canadian Ski Instructor Association and a level 2 Canadian Ski Coach Federation race coach.
-                He has been honing his skills to take the infamous CSIA level 4 course this year in the hopes of becoming one of the youngest
-                fully accredited instructor in Canada. In the mean time, you can always find Sam on his days off trying to find remaining powder
-                stashes, ski touring to the nearest (or furthest, depending on the day) peak in view or hanging around the base of the resort
-                looking to meet new people to ride with.<br/><br/>
-                If you're looking to perfect your technique, or to have a tour of the mountain follow the link.
-            </p>
-            <p class="text-center"><a class="btn btn-large btn-link" href="#contact">Contact</a></p>
-            </p>
-        </div>
-    </div>
 
-    <hr/>
+        <hr/>
 
-    <div class="row">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/tYGPH0xkSS0"></iframe>
-        </div>
-    </div>
-
-    <hr/>
-
-    <div class="row" id="contact">
-        <div class="col-md-5">
-            <p clas="lead"/>
-            <br/><br/><br/>
-            <blockquote >
-                <address class="inline-block">
+        <div class="row" id="contact">
+            <div class="col-md-5">
+                <p clas="lead" />
+                <br/>
+                <br/>
+                <br/>
+                <blockquote>
+                    <address class="inline-block">
                     <strong>Sam Bergeron</strong><br/>
                     Canadian phone :<br/>
-                    <span class="glyphicon glyphicon-earphone"/> : +1 (514) 531-3944<br/>
+                    <span class="glyphicon glyphicon-earphone"/>: 1 (514) 531-3944<br/>
                     <a href="mailto:#">sbergeron101@gmail.com</a><br/>
                     <small>For bookings or inquiries</small><br/>
                 </address>
+                    Classes depending on availability,
+                    <br/>Contact <a href="http://www.revelstokemountainresort.com">RMR</a> front desk for bookings
+                    <br/>
+                    <span class="glyphicon glyphicon-earphone" />: 1 (250) 814-5060
+                    <br/>
+                </blockquote>
+            </div>
+            <div class="col-md-7">
+                <img src="/static/img/templeComp.jpg" />
+            </div>
+        </div>
 
-                Classes depending on availability, <br/>
-                Contact <a href="http://www.revelstokemountainresort.com">RMR</a> front desk for bookings<br/>
-                <span class="glyphicon glyphicon-earphone"/> : + 1 (250) 814-5060<br/>
-            </blockquote>
+        <hr/>
+
+        <div class="row panel panel-default">
+            <div class="panel-heading" type="button" data-toggle="collapse" data-target="#collapsSecondVid">
+                <h4 class="panel-title" class="collapsed">
+                    Want to see how we ride the trees? (click)
+                </h4>
+            </div>
+            <div class="panel-collapse collapse" id="collapsSecondVid">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embedded-responsive-item" src="//www.youtube.com/embed/zXuqoUnkfsM"></iframe>
+                </div>
+            </div>
         </div>
-        <div class="col-md-7">
-            <img src="/static/img/templeComp.jpg"/>
-        </div>
+
+        <hr/>
+
+        <div id="blog"></div>
+
     </div>
 
-    <hr/>
-
-    <div class="row">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embedded-responsive-item" src="//www.youtube.com/embed/zXuqoUnkfsM"></iframe>
-        </div>
+    <div class="container">
+        <footer>
+            <p>&copy; Samuel Bergeron 2014</p>
+        </footer>
     </div>
-
-    <hr/>
-
-    <div id="blog"></div>
-
-</div>
-
-<div class="container">
-    <footer>
-        <p>&copy; Samuel Bergeron 2014</p>
-    </footer>
-</div>
 
 </body>
+
 </html>
