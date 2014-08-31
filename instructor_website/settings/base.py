@@ -30,11 +30,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'ne6156sh#c)@jpqq)h&l!952!9m*20k*0wn)zttxn3!x486rpj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.c9.io', '.herokuapp.com']
 
 ADMINS = (
     ('Samuel Bergeron','sbergeron101@gmail.com')
@@ -45,7 +45,7 @@ MANAGERS = ADMINS
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
