@@ -4,10 +4,10 @@
 <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
 <script>
-    window.jQuery || document.write('&lt;script src="/static/js/jquery-1.7.2.min.js"&gt;&lt;\/script&gt;')
+    window.jQuery || document.write('&lt;script src="{{ STATIC_URL }}js/jquery-1.7.2.min.js"&gt;&lt;\/script&gt;')
 </script>
 <!-- Bootstrap jQuery plugins compiled and minified -->
-<script src="/static/js/bootstrap.min.js" />
+<script src="{{ STATIC_URL }}js/bootstrap.min.js" />
 <script>
     $(document).ready(function() {
         $('.carousel').carousel({
@@ -35,8 +35,8 @@
     <title>Home</title>
 
     <!-- Bootstrap -->
-    <link href="/static/css/bootstrap.css" rel="stylesheet" />
-    <link href="/static/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" />
+    <link href="{{ STATIC_URL }}css/bootstrap-theme.css" rel="stylesheet" />
     <style type="text/css">
         body {
             padding-top: 60px;
@@ -45,7 +45,7 @@
     </style>
 </head>
 
-<body data-spy="scroll" data-target=".navbar">
+<body data-spy="scroll" data-offset="60" data-target=".navbar">
     <div class="navbar-wrapper">
         <nav class="navbar navbar-fixed-top navbar-default" role="navigation" id="mainNavbarId">
             <div class="container-fluid">
@@ -63,13 +63,11 @@
 
                 <div class="collapse navbar-collapse" id="navbar-collapse-id">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a>
+                        <li class="active"><a href="#this-carousel-id">Home</a>
                         </li>
                         <li><a href="#profile">Profile</a>
                         </li>
                         <li><a href="#contact">Contact</a>
-                        </li>
-                        <li><a href="#blog">Latest news</a>
                         </li>
                     </ul>
                     <!-- /.nav -->
@@ -83,25 +81,25 @@
 
         <div class="carousel-inner">
             <div class="item active">
-                <img class="img-responsive" src="/static/img/dobson.jpg" alt="Slide 1" />
+                <img class="img-responsive" src="{{ STATIC_URL }}img/dobson.jpg" alt="Slide 1" />
                 <div class="carousel-caption">
                     <p>Mount Dobson, New Zealand</p>
                 </div>
             </div>
             <div class="item">
-                <img class="img-responsive" src="/static/img/brownShorts.jpg" alt="Slide 2" />
+                <img class="img-responsive" src="{{ STATIC_URL }}img/brownShorts.jpg" alt="Slide 2" />
                 <div class="carousel-caption">
                     <p>Revelstoke, British Columbia, Canada</p>
                 </div>
             </div>
             <div class="item">
-                <img class="img-responsive" src="/static/img/springfield.jpg" alt="Slide 3" />
+                <img class="img-responsive" src="{{ STATIC_URL }}img/springfield.jpg" alt="Slide 3" />
                 <div class="carousel-caption">
                     <p>Springfield, New Zealand</p>
                 </div>
             </div>
             <div class="item">
-                <img class="img-responsive" src="/static/img/banff.jpg" alt="Slide 4" />
+                <img class="img-responsive" src="{{ STATIC_URL }}img/banff.jpg" alt="Slide 4" />
                 <div class="carousel-caption">
                     <p>Lake Louise, Alberta, Canada</p>
                 </div>
@@ -123,12 +121,12 @@
         <div class="row" id="profile">
             <hr/>
             <div class="col-md-4">
-                <img class="img" src="/static/img/SamFace.jpg" />
+                <img class="img" src="{{ STATIC_URL }}img/SamFace.jpg" />
             </div>
             <div class="col-md-8">
                 <p class="text-left">
                     <h2 class="text-left">Sam Bergeron</h2>
-                    <p class="text-left">Experienced CSIA Instructor out of Montreal, Quebec, Canada. Sam has been teaching skiing for over 10 years to anyone ready to learn. Most recently he's taken home to Revelstoke Mountain Resort where he trains fellow instructors and
+                    <p class="text-left">Experienced CSIA Instructor out of Montreal, Quebec, Canada. Sam has been teaching skiing for just about 10 years now to anyone ready to learn. Most recently he's taken home to Revelstoke Mountain Resort where he trains fellow instructors and
                         guides clients around the mountain. He has experience teaching on and ripping up east coast icy groomers, New Zealand's rugged southern alps, and that good old BC powder. Passionate about progression and the ever evolving nature
                         of skiing, Sam has decided to focus his own skiing on riding harder, more technical lines in the backcountry, where his posed and practical approach to skiing has proven to be effective.
                         <br/>
@@ -183,7 +181,7 @@
                 </blockquote>
             </div>
             <div class="col-md-7">
-                <img src="/static/img/templeComp.jpg" />
+                <img src="{{ STATIC_URL }}img/templeComp.jpg" />
             </div>
         </div>
 
@@ -203,8 +201,6 @@
         </div>
 
         <hr/>
-
-        <div id="blog"></div>
 
     </div>
 

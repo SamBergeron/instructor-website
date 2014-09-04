@@ -35,7 +35,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['.c9.io', '.herokuapp.com']
+ALLOWED_HOSTS = ['.c9.io', '.herokuapp.com', 'localhost']
 
 ADMINS = (
     ('Samuel Bergeron','sbergeron101@gmail.com')
@@ -46,7 +46,7 @@ MANAGERS = ADMINS
 # Application definition
 
 INSTALLED_APPS = (
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -91,7 +91,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
+STATIC_ROOT  = root("..", "sta")
 
 STATIC_URL = '/static/'
 
