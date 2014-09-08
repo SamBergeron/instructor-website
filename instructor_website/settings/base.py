@@ -44,8 +44,8 @@ ADMINS = (
 MANAGERS = ADMINS
 
 # Application definition
-
-INSTALLED_APPS = (
+DJANGO_APPS = (
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,6 +54,19 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 )
 
+THIRD_PARTY_APPS = (
+    
+    'south',
+)
+    
+LOCAL_APPS = (
+    'blog',
+)
+
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
+# Classes
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
