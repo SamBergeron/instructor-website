@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<!-- Le javascript -->
+<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+<script>
+    window.jQuery || document.write('&lt;script src="{{ STATIC_URL }}js/jquery-1.7.2.min.js"&gt;&lt;\/script&gt;');
+</script>
+<!-- Bootstrap jQuery plugins compiled and minified -->
+<script src="{{ STATIC_URL }}js/bootstrap.min.js" />
+<script>
+    $(document).ready(function() {
+        $('.carousel').carousel({
+            interval: 4000
+        });
+    });
+
+    $(document).ready(function() {
+        $('.navbar li').click(function(e) {
+            $('.navbar li.active').removeClass('active');
+            var $this = $(this);
+            if (!$this.hasClass('active')) {
+                $this.addClass('active');
+            }
+            e.preventDefault();
+        });
+    });
+</script>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{% block page_title %}{% endblock %} | Ski with Sam</title>
+
+    <!-- Bootstrap -->
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" />
+    <link href="{{ STATIC_URL }}css/bootstrap-theme.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+
+{% block content %}{% endblock %}
