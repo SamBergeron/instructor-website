@@ -10,8 +10,5 @@ from django.views.generic import TemplateView
 class homePageView(TemplateView):
     template_name = 'home.html'
     
-class blogPageView(TemplateView):
-    template_name = 'blog.html'
+
     
-def shred(request):
-    return render_to_response('shred.html')

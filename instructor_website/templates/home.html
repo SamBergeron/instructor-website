@@ -1,41 +1,20 @@
 {% extends "_layouts/header.html" %}
 
-{% block page_title%}Home{% endblock%}
+{% block page_title%} Home {% endblock%}
+
+{% block homeLink %} #top {%endblock%}
+{% block profileLink %} #profile {%endblock%}
+{% block contactLink %} #contact {%endblock%}
+{% block blogLink %}
+    {% url 'blog:main' %}
+{%endblock%}
 
 {% block content %}
 <body data-spy="scroll" data-offset="60" data-target=".navbar">
 
     <div id="top"/>
     
-    <div class="navbar-wrapper">
-        <nav class="navbar navbar-fixed-top navbar-default" role="navigation" id="mainNavbarId">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse-id">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <p><a class="navbar-brand" href="#">Sam Bergeron
-                    <extra-small>Ski instructor</extra-small></a>
-                    </p>
-                </div>
-
-                <div class="collapse navbar-collapse" id="navbar-collapse-id">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#top">Home</a>
-                        </li>
-                        <li><a href="#profile">Profile</a>
-                        </li>
-                        <li><a href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav -->
-                </div>
-            </div>
-        </nav>
-    </div>
+    {% block navbar %}{% endblock%}
 
     <!--  Carousel -->
     <div id="this-carousel-id" class="carousel slide" data-ride="carousel">
@@ -108,10 +87,10 @@
         <hr/>
 
         <div class="row panel panel-default">
-            <div class="panel-heading" type="button" data-toggle="collapse" data-target="#collapseFirstVid">
-                <h4 class="panel-title" class="collapsed">
+            <div class="panel-heading">
+                <a class="panel-title collapsed" data-toggle="collapse" href="#collapseFirstVid">
                     Little video? (click)
-                </h4>
+                </a>
             </div>
             <div class="panel-collapse collapse" id="collapseFirstVid">
                 <div class="embed-responsive embed-responsive-16by9">
@@ -151,10 +130,10 @@
         <hr/>
 
         <div class="row panel panel-default">
-            <div class="panel-heading" type="button" data-toggle="collapse" data-target="#collapsSecondVid">
-                <h4 class="panel-title" class="collapsed">
+            <div class="panel-heading">
+                <a class="panel-title collapsed" href="#collapsSecondVid" data-toggle="collapse">
                     Want to see how we ride the trees? (click)
-                </h4>
+                </a>
             </div>
             <div class="panel-collapse collapse" id="collapsSecondVid">
                 <div class="embed-responsive embed-responsive-16by9">

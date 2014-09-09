@@ -1,0 +1,42 @@
+{% extends "_layouts/header.html" %}
+
+{% block page_title%}Blog{% endblock%}
+
+{% block homeLink %} {% url 'home' %} {%endblock%}
+{% block profileLink %} {% url 'home' %}#profile {%endblock%}
+{% block contactLink %} {% url 'home' %}#contact {%endblock%}
+{% block blogLink %}#{%endblock%}
+
+{% block content %}
+<body data-spy="affix" data-offset="60" data-offset-bottom="200">
+    
+    <div class="container container-fluid">
+    
+        <div class="col-md-2 hidden-sm hidden-xs">
+            <div class="lead"></div>
+            <h2>Latest News</h2>
+            <ul>
+                {% for post in post_list %}
+                <li><a href="#{{ post.slug }}">{{ post.title }}</a></li>
+                {% empty %}
+                <li>Sorry, we haven't started posting yet!</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="col-md-10 col-sm-12 col-xs-12">
+            <div class="lead"></div>
+            {% for post in post_list %}
+            <div class="row" id="{{ post.slug }}">
+                <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                <p>{{ post.content }}</p>
+            </div>
+            
+            <hr/>
+            {% endfor %}
+        </div>
+    </div>
+    
+</body>
+{% endblock%}
+    
