@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
+from django.conf import settings
 
 from .views import blogPageView, postDetailView
-from . import settings
 
 # for blog views
 urlpatterns = patterns('blog.views',
