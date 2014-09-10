@@ -10,9 +10,3 @@ urlpatterns = patterns('blog.views',
     url(r'^/$', blogPageView.as_view(), name='main'),
     url(r'^/(?P<slug>[\w-]+)/$', postDetailView.as_view(), name='post_detail'),
 )
-
-urlpatterns += patterns('',
-    (r'^/static/(.*)$', 'django.views.static.serve', {
-        'document_root': settings.STATICFILES_DIRS
-    }),
-)
