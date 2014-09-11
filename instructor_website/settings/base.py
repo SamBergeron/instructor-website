@@ -115,7 +115,7 @@ STATICFILES_DIRS = (
 
 # Media files (for uploading files and images)
 
-MEDIA_ROOT = root("..", "..", "media")
+MEDIA_ROOT = root("..", "media")
 
 MEDIA_URL = '/media/'
 
