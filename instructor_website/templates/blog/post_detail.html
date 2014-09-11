@@ -1,0 +1,23 @@
+{% extends "_layouts/header.html" %}
+
+{% block page_title%}Post{% endblock%}
+
+{% block homeLink %} {% url 'home' %} {%endblock%}
+{% block profileLink %} {% url 'home' %}#profile {%endblock%}
+{% block contactLink %} {% url 'home' %}#contact {%endblock%}
+{% block blogLink %} {% url 'blog:main' %} {%endblock%}
+
+{% block content %}
+
+    <div class="container container-fluid">
+        <div class="row" id="{{ post.slug }}">
+            <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+            <p>{{ post.content }}</p>
+            <div class="container">
+                <img src="{{ post.image.url }}" width="100%">
+            </div>
+            <h5 class="text-right"><small>- Posted on {{ post.updated_at }} by {{ post.author }} </small></p>
+        </div>
+    </div>
+
+{% endblock %}

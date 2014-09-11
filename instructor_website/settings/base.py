@@ -113,6 +113,13 @@ STATICFILES_DIRS = (
     root("static"),
 )
 
+# Media files (for uploading files and images)
+
+MEDIA_ROOT = root("..", "..", "media")
+
+MEDIA_URL = '/media/'
+
+# Template direcrory
 TEMPLATE_DIRS = (
     root("templates"),
 )

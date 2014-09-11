@@ -63,7 +63,7 @@
 
                 <div class="collapse navbar-collapse" id="navbar-collapse-id">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{% block homeLink %}{%endblock%}">Home</a>
+                        <li class=""><a href="{% block homeLink %}{%endblock%}">Home</a>
                         </li>
                         <li><a href="{% block profileLink %}{%endblock%}">Profile</a>
                         </li>
@@ -71,6 +71,13 @@
                         </li>
                         <li><a href="{% block blogLink %}{%endblock%}">Blog</a>
                         </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Link for login and signup -->
+                        <li>
+                            <a href="">Sign Up</a>
+                        </li>
+                        <li><a href="">Login</a></li>
                     </ul>
                     <!-- /.nav -->
                 </div>

@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 
 # Mixin for generic query
 # class PublishedPostsMixin(object):
@@ -9,6 +9,7 @@ from django.views.generic import TemplateView
         
 class homePageView(TemplateView):
     template_name = 'home.html'
+    
     
 
     

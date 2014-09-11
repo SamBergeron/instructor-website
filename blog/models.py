@@ -15,6 +15,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=255, blank=True, default='')
     author = models.ForeignKey(User, related_name="posts")
     content = models.TextField()
+    image = models.ImageField(upload_to="post_images/")
     published = models.BooleanField(default=True)
     
     class Meta:
@@ -58,12 +59,12 @@ class Profile(models.Model):
     firstname = models.CharField(max_length=255)
     lastname = models.CharField(max_length=255)
     slug = models.SlugField(max_length=512, blank=True, default='')
-    country = models.CharField(max_length=255)
-    resort = models.CharField(max_length=255)
+    country = models.CharField(max_length=255, choices=COUNTRIES)
+    resort = models.ForeignKey(Resort, related_name="user_profile")
     description = models.TextField()
     contact_info = models.TextField()
     contact_phone = models.CharField(max_length=255)
-    contact_email = models.CharField(max_length=255)
+    contact_email = models.EmailField(max_length=255, unique=True)
     
     class Meta:
         ordering = ["lastname", "firstname"]
@@ -73,7 +74,7 @@ class Profile(models.Model):
         
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.firstname + self.lastname)
+            self.slug = slugify(self.firstname + self.lastname + self.resort)
         super(Profile, self).save(*args, **kwargs)
         
     

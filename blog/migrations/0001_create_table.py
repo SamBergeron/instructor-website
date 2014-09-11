@@ -17,14 +17,47 @@ class Migration(SchemaMigration):
             ('slug', self.gf('django.db.models.fields.SlugField')(default='', max_length=255, blank=True)),
             ('author', self.gf('django.db.models.fields.related.ForeignKey')(related_name='posts', to=orm['auth.User'])),
             ('content', self.gf('django.db.models.fields.TextField')()),
+            ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
             ('published', self.gf('django.db.models.fields.BooleanField')(default=True)),
         ))
         db.send_create_signal(u'blog', ['Post'])
+
+        # Adding model 'Resort'
+        db.create_table(u'blog_resort', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(unique=True, max_length=255)),
+            ('country', self.gf('django.db.models.fields.CharField')(max_length=4)),
+            ('state', self.gf('django.db.models.fields.CharField')(max_length=3)),
+        ))
+        db.send_create_signal(u'blog', ['Resort'])
+
+        # Adding model 'Profile'
+        db.create_table(u'blog_profile', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('created_at', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('username', self.gf('django.db.models.fields.related.ForeignKey')(related_name='profile', unique=True, to=orm['auth.User'])),
+            ('firstname', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('lastname', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('slug', self.gf('django.db.models.fields.SlugField')(default='', max_length=512, blank=True)),
+            ('country', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('resort', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('description', self.gf('django.db.models.fields.TextField')()),
+            ('contact_info', self.gf('django.db.models.fields.TextField')()),
+            ('contact_phone', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('contact_email', self.gf('django.db.models.fields.EmailField')(max_length=255)),
+        ))
+        db.send_create_signal(u'blog', ['Profile'])
 
 
     def backwards(self, orm):
         # Deleting model 'Post'
         db.delete_table(u'blog_post')
+
+        # Deleting model 'Resort'
+        db.delete_table(u'blog_resort')
+
+        # Deleting model 'Profile'
+        db.delete_table(u'blog_profile')
 
 
     models = {
@@ -58,15 +91,38 @@ class Migration(SchemaMigration):
             'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
         },
         u'blog.post': {
-            'Meta': {'object_name': 'Post'},
+            'Meta': {'ordering': "['-created_at', 'title']", 'object_name': 'Post'},
             'author': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'posts'", 'to': u"orm['auth.User']"}),
             'content': ('django.db.models.fields.TextField', [], {}),
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
             'published': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'default': "''", 'max_length': '255', 'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'})
+        },
+        u'blog.profile': {
+            'Meta': {'ordering': "['lastname', 'firstname']", 'object_name': 'Profile'},
+            'contact_email': ('django.db.models.fields.EmailField', [], {'max_length': '255'}),
+            'contact_info': ('django.db.models.fields.TextField', [], {}),
+            'contact_phone': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'country': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'description': ('django.db.models.fields.TextField', [], {}),
+            'firstname': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'lastname': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'resort': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'default': "''", 'max_length': '512', 'blank': 'True'}),
+            'username': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'profile'", 'unique': 'True', 'to': u"orm['auth.User']"})
+        },
+        u'blog.resort': {
+            'Meta': {'ordering': "['country', 'state', 'name']", 'object_name': 'Resort'},
+            'country': ('django.db.models.fields.CharField', [], {'max_length': '4'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'}),
+            'state': ('django.db.models.fields.CharField', [], {'max_length': '3'})
         },
         u'contenttypes.contenttype': {
             'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},
