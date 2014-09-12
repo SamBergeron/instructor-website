@@ -2,20 +2,13 @@
 
 {% block page_title%} Home {% endblock%}
 
-{% block homeLink %} #top {%endblock%}
-{% block profileLink %} #profile {%endblock%}
-{% block contactLink %} #contact {%endblock%}
-{% block blogLink %}
-    {% url 'blog:main' %}
-{%endblock%}
-
 {% block content %}
 <body data-spy="scroll" data-offset="60" data-target=".navbar">
 
     <div id="top"/>
     
-    {% block navbar %}{% endblock%}
-
+    {% include "_layouts/navbar.html" with  profileLink="#profile" contactLink="#contact" %}
+    
     <!--  Carousel -->
     <div id="this-carousel-id" class="carousel slide" data-ride="carousel">
 

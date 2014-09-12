@@ -57,6 +57,7 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     
     'south',
+    'storages',
 )
     
 LOCAL_APPS = (
@@ -115,7 +116,7 @@ STATICFILES_DIRS = (
 
 # Media files (for uploading files and images)
 
-MEDIA_ROOT = root("..""..", "media")
+MEDIA_ROOT = root("..", "..", "media")
 
 MEDIA_URL = '/media/'
 
