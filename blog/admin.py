@@ -5,7 +5,7 @@ from .models import Post, Profile, Resort
 class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_at'
     fields = ('published', 'title', 'slug', 'content', 'image', 'author')
-    list_display = ['published', 'title', 'created_at']
+    list_display = ['published', 'title', 'created_at', 'updated_at']
     list_display_links = ['title']
     list_editable = ['published']
     list_filter = ['published', 'updated_at', 'author']
