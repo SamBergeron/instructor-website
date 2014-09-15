@@ -35,7 +35,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['.c9.io', '.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['.c9.io', '.herokuapp.com', 'localhost', '.skiwithsam.com']
 
 ADMINS = (
     ('Samuel Bergeron','sbergeron101@gmail.com')
