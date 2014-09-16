@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import homePageView
+from .views import homePageView, loginView
 
 admin.autodiscover()
 
@@ -12,6 +12,7 @@ urlpatterns = patterns('instructor_website.views',
 
     url(r'^$', homePageView.as_view(), name='home'),
     url(r'^blog', include("blog.urls", namespace='blog')),
+    url(r'^login/', loginView.as_view(), 'django.contrib.auth.views.login'),
         
     #admin access for postgres
     url(r'^admin/', include(admin.site.urls)),

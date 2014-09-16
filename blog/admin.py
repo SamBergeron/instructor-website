@@ -14,7 +14,7 @@ class PostAdmin(admin.ModelAdmin):
 
 class ProfileAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_at'
-    fields = ('username', 'firstname', 'lastname', 'slug', 'country', 'resort', 'description')
+    fields = ('username', 'firstname', 'lastname', 'contact_phone', 'contact_email', 'slug', 'country', 'resort', 'markdown_description')
     list_display = ['username', 'firstname', 'lastname', 'resort']
     list_display_links = ['username']
     list_filter = ['resort', 'country', 'firstname', 'lastname']

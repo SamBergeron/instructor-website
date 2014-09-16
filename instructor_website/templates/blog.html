@@ -26,19 +26,31 @@
 
             <hr/>
             {% endfor %}
-            <h5 class="text-right"><a href="#">Top</a></h5>
+            <p>
+                <h5 class="text-right"><a href="#">Top</a></h5>
+            </p>
         </div>
         
-        <div class="col-md-3 hidden-xs">
-            <div class="lead"></div>
-            <h2>Latest News</h2>
-            <ul>
-                {% for post in post_list %}
-                <li><a href="#{{ post.slug }}">{{ post.title }}</a></li>
-                {% empty %}
-                <li>Sorry, we haven't started posting yet!</li>
-                {% endfor %}
-            </ul>
+        <div class="col-md-3">
+            <div class="hidden-xs hidden-sm">
+                <div class="lead"></div>
+                <h2>Latest News</h2>
+                <ul>
+                    {% for post in post_list %}
+                    <li><a href="#{{ post.slug }}">{{ post.title }}</a></li>
+                    {% empty %}
+                    <li>Sorry, we haven't started posting yet!</li>
+                    {% endfor %}
+                </ul>
+            </div>    
+            
+            {% if user.is_authenticated %}
+            <p class="text-right">
+                <a href="{% url 'blog:post_add' %}">New Post
+                    <span class="glyphicon glyphicon-add"/>
+                </a>
+            </p>
+            {% endif %}
         </div>
     </div>
     

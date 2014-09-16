@@ -24,13 +24,13 @@
                         <li ><a href="{% url 'blog:main' %}">Blog</a>
                         </li>
                     </ul>
+                    
+                    {% if not user.is_authenticated %}
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- Link for login and signup -->
-                        <li>
-                            <a href="">Sign Up</a>
-                        </li>
+                        <!-- Link for login and signup -->calendar/render?pli=
                         <li><a href="">Login</a></li>
                     </ul>
+                    {% endif %}
                     <!-- /.nav -->
                 </div>
             </div>

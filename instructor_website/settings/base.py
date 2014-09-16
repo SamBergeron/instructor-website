@@ -58,6 +58,7 @@ THIRD_PARTY_APPS = (
     
     'south',
     'storages',
+    'markdown'
 )
     
 LOCAL_APPS = (

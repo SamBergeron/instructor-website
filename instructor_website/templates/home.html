@@ -59,18 +59,8 @@
             </div>
             <div class="col-md-8">
                 <p class="text-left">
-                    <h2 class="text-left">Sam Bergeron</h2>
-                    <p class="text-left">Experienced CSIA Instructor out of Montreal, Quebec, Canada. Sam has been teaching skiing for just about 10 years now to anyone ready to learn. Most recently he's taken home to Revelstoke Mountain Resort where he trains fellow instructors and
-                        guides clients around the mountain. He has experience teaching on and ripping up east coast icy groomers, New Zealand's rugged southern alps, and that good old BC powder. Passionate about progression and the ever evolving nature
-                        of skiing, Sam has decided to focus his own skiing on riding harder, more technical lines in the backcountry, where his posed and practical approach to skiing has proven to be effective.
-                        <br/>
-                        <br/>Sam is a level 3 instructor for the Canadian Ski Instructor Association and a level 2 Canadian Ski Coach Federation race coach. He has been honing his skills to take the infamous CSIA level 4 course this year in the hopes of becoming
-                        one of the youngest fully accredited instructor in Canada. In the mean time, you can always find Sam on his days off trying to find remaining powder stashes, ski touring to the nearest (or furthest, depending on the day) peak in
-                        view or hanging around the base of the resort looking to meet new people to ride with.
-                        <br/>
-                        <br/>If you're looking to perfect your technique, or to have a tour of the mountain follow the link.
-                    </p>
-                    <p class="text-center"><a class="btn btn-large btn-link" href="#contact">Contact</a>
+                    <h2 class="text-left">{{ profile.firstname }}&nbsp;{{ profile.lastname }}</h2>
+                    <p class="text-left">{{ profile.description | safe }} </p>
                     </p>
                 </p>
             </div>
@@ -78,9 +68,9 @@
 
         <hr/>
 
-        <div class="row">
-            <h3><a class="" data-toggle="modal" data-target="#modalFirstVid">Little video?&nbsp;&nbsp;<span class="glyphicon glyphicon-expand"></span></a>
-                <a class="pull-right" data-toggle="modal" data-target="#modalSecondVid">Curious about tree skiing lessons?&nbsp;&nbsp;<span class="glyphicon glyphicon-expand"></span></a>
+        <div class="row hidden-xs hidden-sm">
+            <h3><a role="button" data-toggle="modal" data-target="#modalFirstVid">Little video?&nbsp;&nbsp;<span class="glyphicon glyphicon-expand"></span></a>
+                <a class="pull-right" role="button" data-toggle="modal" data-target="#modalSecondVid">Curious about tree skiing lessons?&nbsp;&nbsp;<span class="glyphicon glyphicon-expand"></span></a>
             </h3>
         </div>
         
@@ -137,10 +127,10 @@
                 <br/>
                 <blockquote>
                     <address class="inline-block">
-                    <strong>Sam Bergeron</strong><br/>
+                    <strong>{{ profile.firstname }}&nbsp;{{ profile.lastname}}</strong><br/>
                     Canadian phone :<br/>
                     <span class="glyphicon glyphicon-earphone"/>: 1 (514) 531-3944<br/>
-                    <a href="mailto:#">sbergeron101@gmail.com</a><br/>
+                    <a href="mailto:#">{{ profile.contact_email }}</a><br/>
                     <small>For bookings or inquiries</small><br/>
                 </address>
                     Classes depending on availability,

@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
+from django.forms import ModelForm
+
+from markdown import markdown
 
 from .lists import COUNTRIES, STATES
 
@@ -15,7 +18,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=255, blank=True, default='')
     author = models.ForeignKey(User, related_name="posts")
     content = models.TextField()
-    image = models.ImageField(upload_to="post_images/")
+    image = models.ImageField(upload_to="post_images/", blank=True)
     published = models.BooleanField(default=True)
     
     class Meta:
@@ -33,6 +36,11 @@ class Post(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
+        
+class PostForm(ModelForm):
+    class Meta:
+        model = Post
+        fields = ('title', 'content', 'image')
 
 
 ########################
@@ -62,6 +70,7 @@ class Profile(models.Model):
     country = models.CharField(max_length=255, choices=COUNTRIES)
     resort = models.ForeignKey(Resort, related_name="user_profile")
     description = models.TextField()
+    markdown_description = models.TextField('Body', help_text='Use markdown for publishing')
     contact_info = models.TextField()
     contact_phone = models.CharField(max_length=255)
     contact_email = models.EmailField(max_length=255, unique=True)
@@ -75,6 +84,8 @@ class Profile(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.firstname + self.lastname + self.resort)
+        import markdown
+        self.description = markdown.markdown(self.markdown_description)
         super(Profile, self).save(*args, **kwargs)
         
     
