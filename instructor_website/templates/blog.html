@@ -3,7 +3,7 @@
 {% block page_title%}Blog{% endblock%}
 
 {% block content %}
-<body data-spy="affix" data-offset="20" data-offset-bottom="200">
+<body data-spy="affix" data-offset="20" data-offset-bottom="200" id="top">
 
     {% include "_layouts/navbar.html" with profileLink='/#profile' contactLink='/#contact' %}
     
@@ -22,7 +22,7 @@
             <hr/>
             {% endfor %}
             <p>
-                <h5 class="text-right"><a href="#">Top</a></h5>
+                <h5 class="text-right"><a class="scroll" href="#top">Top</a></h5>
             </p>
         </div>
         
