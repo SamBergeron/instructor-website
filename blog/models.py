@@ -88,5 +88,25 @@ class Profile(models.Model):
         self.description = markdown.markdown(self.markdown_description)
         super(Profile, self).save(*args, **kwargs)
         
+
+########################
+## FOLLOWER MODEL
+######################## 
+
+class Follower(models.Model):
+    follow_date = models.DateTimeField(auto_now_add=True, editable=False)
+    email = models.EmailField(max_length=255, unique=True)
+    firstname = models.CharField(max_length=255, blank=True, default='')
+    lastname = models.CharField(max_length=255, blank=True, default='')
+    active = models.BooleanField(default=True)
     
+    class Meta:
+        ordering = ["-follow_date", "email"]
     
+    def __unicode__(self):
+        return self.email
+    
+class FollowerForm(ModelForm):
+    class Meta:
+        model = Follower
+        fields = ('firstname', 'lastname', 'email')

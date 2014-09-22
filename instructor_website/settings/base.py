@@ -115,6 +115,14 @@ STATICFILES_DIRS = (
     root("static"),
 )
 
+# Static files with django-storage and S3
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_S3_SECURE_URLS = False       # use http instead of https
+AWS_QUERYSTRING_AUTH = False 
+AWS_S3_ACCESS_KEY_ID = 'AKIAJLPMHANQWKLXUPIQ'
+AWS_S3_SECRET_ACCESS_KEY = '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' 
+AWS_STORAGE_BUCKET_NAME = 'skiwithsam.media'
+
 # Media files (for uploading files and images)
 
 MEDIA_ROOT = root("..", "..", "media")

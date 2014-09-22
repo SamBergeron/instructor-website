@@ -2,15 +2,10 @@
 
 {% block page_title%}Blog{% endblock%}
 
-{% block homeLink %} {% url 'home' %} {%endblock%}
-{% block profileLink %} {% url 'home' %}#profile {%endblock%}
-{% block contactLink %} {% url 'home' %}#contact {%endblock%}
-{% block blogLink %}#{%endblock%}
-
 {% block content %}
-<body data-spy="affix" data-offset="60" data-offset-bottom="200">
+<body data-spy="affix" data-offset="20" data-offset-bottom="200">
 
-    {% include "_layouts/navbar.html" %}
+    {% include "_layouts/navbar.html" with profileLink='/#profile' contactLink='/#contact' %}
     
     <div class="container container-fluid">
         
@@ -37,7 +32,7 @@
                 <h2>Latest News</h2>
                 <ul>
                     {% for post in post_list %}
-                    <li><a href="#{{ post.slug }}">{{ post.title }}</a></li>
+                    <li><a class="scroll" href="#{{ post.slug }}">{{ post.title }}</a></li>
                     {% empty %}
                     <li>Sorry, we haven't started posting yet!</li>
                     {% endfor %}

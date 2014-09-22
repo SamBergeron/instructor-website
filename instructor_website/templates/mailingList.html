@@ -1,0 +1,27 @@
+{% extends "_layouts/header.html" %}
+
+{% block page_title%}Blog{% endblock%}
+
+{% block homeLink %} {% url 'home' %} {%endblock%}
+{% block profileLink %} {% url 'home' %}#profile {%endblock%}
+{% block contactLink %} {% url 'home' %}#contact {%endblock%}
+{% block blogLink %} {% url 'blog:main' %} {%endblock%}
+
+{% block content %}
+
+    {% include '_layouts/navbar.html' %}
+
+    <div class="container container-fluid">
+        <div class="row">
+            <h1>Get News!!</h1>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{ form }}
+                </table>
+                <button type="submit">Follow us!</button>
+            </form>
+        </div>
+    </div>
+    
+{% endblock %}

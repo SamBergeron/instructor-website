@@ -50,9 +50,9 @@
 
     <div class="container container-fluid">
 
-        <hr/>
+        <hr  id="profile"/>
         
-        <div class="row" id="profile">
+        <div class="row">
             
             <div class="col-md-4">
                 <img class="img" src="{{ STATIC_URL }}img/SamFace.jpg" />
@@ -117,7 +117,7 @@
         <!-- end modal -->
         
 
-        <hr/>
+        <hr class="hidden-xs hidden-sm"/>
 
         <div class="row" id="contact">
             <div class="col-md-5">
@@ -146,9 +146,20 @@
         </div>
 
         <hr/>
-
+        
+        <div class="row">
+            <div class="col-lg-offset-3 col-lg-5">
+                <p class="text-center">
+                    Stay up to date with Sam and his adventures by submiting your email!
+                    We'll send you blog updates and updates on where Sam is skiing now so you can keep up, or try to catch up.
+                    <a href="{% url 'mailing-list' %}">Get News!</a>
+                </p>
+            </div>
+        </div>
     </div>
-            
+        
+        <hr/>
+
     <div class="container">
         <footer>
             <p>&copy; Samuel Bergeron 2014</p>
