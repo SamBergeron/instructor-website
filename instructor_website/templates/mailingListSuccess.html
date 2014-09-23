@@ -1,0 +1,18 @@
+{% extends "_layouts/header.html" %}
+
+{% block page_title%}Mailing List{% endblock%}
+
+{% block content %}
+
+    {% include '_layouts/navbar.html' %}
+
+    <div class="container container-fluid">
+        <div class="row">
+            <h1>Thanks for Following!</h1>
+            <h3>Just follow the link to head back to the main page, 
+                <a href="{% url 'home' %}">here</a>.
+            </h3>
+        </div>
+    </div>
+    
+{% endblock %}

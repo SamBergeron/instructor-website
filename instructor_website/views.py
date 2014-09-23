@@ -10,13 +10,15 @@ from blog.models import Profile, Follower, FollowerForm
 class mailingListForm(CreateView):
     form_class = FollowerForm
     template_name = 'mailingList.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('mailing-list-success')
     
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
         return super(mailingListForm, self).form_valid(form)
 
+class mailingListSuccess(TemplateView):
+    template_name = 'mailingListSuccess.html'
 
 class homePage(TemplateView):
     template_name = 'home.html'

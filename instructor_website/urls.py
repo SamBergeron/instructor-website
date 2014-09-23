@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import loginView, homePage, mailingListForm
+from .views import loginView, homePage, mailingListForm, mailingListSuccess
 
 admin.autodiscover()
 
@@ -12,6 +12,7 @@ urlpatterns = patterns('instructor_website.views',
 
     url(r'^$', homePage.as_view(), name='home'),
     url(r'^mailing-list/', mailingListForm.as_view(), name='mailing-list'),
+    url(r'^mailing-list-success/', mailingListSuccess.as_view(), name='mailing-list-success'),
     url(r'^blog', include("blog.urls", namespace='blog')),
     url(r'^login/', loginView.as_view(), 'django.contrib.auth.views.login'),
         
