@@ -17,6 +17,10 @@
                 <img src="{{ post.image.url }}" width="100%">
             </div>
             <h5 class="text-right"><small>- Posted on {{ post.updated_at }} by {{ post.author }} </small></p>
+            <!-- Facebook comments -->
+            <div class="fb-comments" data-href="{{ post.get_absolute_url }}" 
+                data-numposts="5" data-colorscheme="light" data-width="100%">
+            </div>
         </div>
     </div>
 

@@ -54,10 +54,14 @@
         
         <div class="row">
             
-            <div class="col-md-4">
-                <img class="img" src="{{ STATIC_URL }}img/SamFace.jpg" />
+            <div class="col-md-4 hidden-sm hidden-xs">
+                <img class="img" src="{{ STATIC_URL }}img/SamFace.jpg" width="100%" />
             </div>
-            <div class="col-md-8">
+            <!-- for smaller devices -->
+            <div class="col-xs-6 col-sm-6 hidden-md hidden-lg hidden-xl">
+                <img class="img" src="{{ STATIC_URL }}img/SamFace.jpg" width="100%" />
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12">
                 <p class="text-left">
                     <h2 class="text-left">{{ profile.firstname }}&nbsp;{{ profile.lastname }}</h2>
                     <p class="text-left">{{ profile.description | safe }} </p>
@@ -140,7 +144,7 @@
                     <br/>
                 </blockquote>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 col-sm-12 col-xs-12" width="100%">
                 <img src="{{ STATIC_URL }}img/templeComp.jpg" />
             </div>
         </div>
@@ -160,7 +164,7 @@
         
         <hr/>
 
-    <div class="container">
+    <div class="container invert">
         <footer>
             <p>&copy; Samuel Bergeron 2014</p>
         </footer>

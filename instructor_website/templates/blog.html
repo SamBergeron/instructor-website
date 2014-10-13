@@ -13,10 +13,30 @@
             <div class="lead"></div>
             {% for post in post_list %}
             <div class="row" id="{{ post.slug }}">
-                <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-                <p>{{ post.content }}</p>
-                <img src="{{ post.image.url }}" width="100%">
-                <h5 class="text-right"><small>- Posted on {{ post.updated_at }} by {{ post.author }} </small></p>
+            
+                {% if forloop.counter|divisibleby:2 %}
+                <div class="col-md-5">
+                    <br/><br/><br/>
+                    <img src="{{ post.image.url }}" width="100%">
+                    <h5 class="text-right"><small>- Posted on {{ post.updated_at }} by {{ post.author }} </small></p>
+                </div>
+                {% endif %}
+            
+                <div class="col-md-7">
+                    <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                    <p>{{ post.content }}</p>
+                    <!-- Share button here -->
+                    <div class="fb-share-button" data-href="{{ post.get_absolute_url }}"></div>
+                </div>
+                
+                {% if forloop.counter0|divisibleby:2 %}
+                <div class="col-md-5">
+                    <br/><br/><br/>
+                    <img src="{{ post.image.url }}" width="100%">
+                    <h5 class="text-right"><small>- Posted on {{ post.updated_at }} by {{ post.author }} </small></p>
+                </div>
+                {% endif %}
+                
             </div>
 
             <hr/>
