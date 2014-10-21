@@ -1,27 +1,23 @@
 {% extends "_layouts/header.html" %}
 
-{% block page_title%}Post{% endblock%}
-
-{% block homeLink %} {% url 'home' %} {%endblock%}
-{% block profileLink %} {% url 'home' %}#profile {%endblock%}
-{% block contactLink %} {% url 'home' %}#contact {%endblock%}
-{% block blogLink %} {% url 'blog:main' %} {%endblock%}
+{% block page_title%}{{post.title}}{% endblock%}
 
 {% block content %}
 
     <div class="container container-fluid">
-        <div class="row" id="{{ post.slug }}">
-            <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-            <p>{{ post.content }}</p>
-            <div class="container">
-                <img src="{{ post.image.url }}" width="100%">
-            </div>
-            <h5 class="text-right"><small>- Posted on {{ post.updated_at }} by {{ post.author }} </small></p>
-            <!-- Facebook comments -->
-            <div class="fb-comments" data-href="{{ post.get_absolute_url }}" 
-                data-numposts="5" data-colorscheme="light" data-width="100%">
+        <div class="container" id="mobile-spacer">
+            <div class="row" id="{{ post.slug }}">
+                <p class="text-right"><a href="{% url 'blog:main' %}" class="glyphicon glyphicon-arrow-left">&nbsp;Back</a></p>
+                <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                <p class="text-justify">{{ post.content }}</p>
+                <div class="container">
+                    <img src="{{ post.image.url }}" width="100%">
+                </div>
+                <h5 class="text-right"><small>- Posted on {{ post.updated_at }} by {{ post.author }} </small></p>
             </div>
         </div>
+        
+        <div id="disqus_thread"></div>
     </div>
 
 {% endblock %}

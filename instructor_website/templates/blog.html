@@ -5,6 +5,7 @@
 {% block content %}
 <body data-spy="affix" data-offset="20" data-offset-bottom="200" id="top">
 
+
     {% include "_layouts/navbar.html" with profileLink='/#profile' contactLink='/#contact' %}
     
     <div class="container container-fluid">
@@ -26,7 +27,10 @@
                     <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
                     <p>{{ post.content }}</p>
                     <!-- Share button here -->
-                    <div class="fb-share-button" data-href="{{ post.get_absolute_url }}"></div>
+                    <div>
+                        <div class="fb-share-button" data-href="{{ post.get_absolute_url }}" data-layout="button_count"></div>
+                        <a href="{{ post.get_absolute_url }}#disqus_thread"><p class="text-right">Comment</h4></a>
+                    </div>
                 </div>
                 
                 {% if forloop.counter0|divisibleby:2 %}
@@ -36,6 +40,7 @@
                     <h5 class="text-right"><small>- Posted on {{ post.updated_at }} by {{ post.author }} </small></p>
                 </div>
                 {% endif %}
+                
                 
             </div>
 
