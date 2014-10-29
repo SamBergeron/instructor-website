@@ -1,6 +1,7 @@
     <div class="navbar-wrapper">
-        <nav class="navbar navbar-fixed-top navbar-default" role="navigation" id="mainNavbarId">
+        <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation" id="mainNavbarId">
             <div class="container-fluid">
+            
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-id">
                         <span class="sr-only">Toggle navigation</span>
@@ -15,7 +16,7 @@
 
                 <div class="collapse navbar-collapse" id="navbar-collapse-id">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{% url 'home' %}">Home</a>
+                        <li class=""><a href="{% url 'home' %}">Home</a>
                         </li>
                         <li class="hidden-xs hidden-sm"><a class="scroll" href="{{ profileLink }}">Profile</a>
                         </li>
@@ -25,13 +26,26 @@
                         </li>
                     </ul>
                     
-                    <!-- maybe later
-                    {% if not user.is_authenticated %}
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="">Login</a></li>
-                    </ul>
-                    {% endif %} -->
-                    <!-- /.nav -->
+                    <!--
+                    <ul class="nav navbar-right">
+                        <li class="dropdown" >
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow me! <span class="caret"></span></a>
+                              <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="http://instagram.com/sam10thp?ref=badge">
+                                    <img src="//badges.instagram.com/static/images/ig-badge-48.png" alt="Instagram" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://vimeo.com/user5909888">
+                                    <img src="http://a.vimeocdn.com/images_v6/blogbadge_bluev.png" alt="Vimeo" width="48px" />
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="#contact">Phone and email</a></li>
+                              </ul>
+                        </li>
+                    </ul> -->
                 </div>
             </div>
         </nav>

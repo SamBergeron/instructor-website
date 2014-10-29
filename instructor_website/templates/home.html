@@ -3,9 +3,10 @@
 {% block page_title%} Home {% endblock%}
 
 {% block content %}
-<body data-spy="scroll" data-offset="60" data-target=".navbar">
+<!-- No need for the dataspy... later maybe
+ <body data-spy="scroll" data-offset="60" data-target=".navbar"> -->
+<body>
 
-    
     {% include "_layouts/navbar.html" with  profileLink="#profile" contactLink="#contact" %}
     
     <!--  Carousel -->
@@ -48,30 +49,35 @@
 
     <p class="lead lead-large" />
 
-    <div class="container container-fluid">
+    <div class="container container-fluid" id="profile">
 
-        <hr  id="profile"/>
+        <hr/>
         
         <div class="row">
             
-            <div class="col-md-4 col-xs-6 col-sm-6">
-                <img class="img" src="{{ STATIC_URL }}img/SamFace.jpg" width="100%" />
+            <div class="col-md-4 col-xs-12 col-sm-12">
+                <br><br>
+                <img class="img" src="{{ STATIC_URL }}img/SamTop.jpg" width="100%" />
             </div>
             <div class="col-md-8 col-sm-12 col-xs-12">
-                <p class="text-left">
-                    <h2 class="text-left">{{ profile.firstname }}&nbsp;{{ profile.lastname }}</h2>
-                    <p class="text-left">{{ profile.description | safe }} </p>
+                <div class="container-fluid textPanel">
+                    <p class="text-left">
+                        <h2 class="text-left" style="color: #FCFCFC;"><b>{{ profile.firstname }}&nbsp;{{ profile.lastname }}</b></h2>
+                        <p class="text-left">{{ profile.description | safe }} </p>
+                        </p>
                     </p>
-                </p>
+                </div>
             </div>
         </div>
 
-        <hr/>
+        <br/>
 
         <div class="row hidden-xs hidden-sm">
-            <h3><a role="button" data-toggle="modal" data-target="#modalFirstVid">Little video?&nbsp;&nbsp;<span class="glyphicon glyphicon-expand"></span></a>
-                <a class="pull-right" role="button" data-toggle="modal" data-target="#modalSecondVid">Curious about tree skiing lessons?&nbsp;&nbsp;<span class="glyphicon glyphicon-expand"></span></a>
-            </h3>
+            <div clas="container container-fluid">
+                <h3><a role="button" data-toggle="modal" data-target="#modalFirstVid">Little video?&nbsp;&nbsp;<span class="glyphicon glyphicon-expand"></span></a>
+                    <a class="pull-right" role="button" data-toggle="modal" data-target="#modalSecondVid">Curious about tree skiing lessons?&nbsp;&nbsp;<span class="glyphicon glyphicon-expand"></span></a>
+                </h3>
+            </div>
         </div>
         
         <!-- first video modal -->    
@@ -87,7 +93,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="//player.vimeo.com/video/106988105?color=fcfcfc"></iframe>
+                            <iframe class="embed-responsive-item" src="//player.vimeo.com/video/106988105?color=008cba"></iframe>
                         </div>
                     </div>
                 </div>
@@ -108,7 +114,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="embed-responsive embed-responsive-4by3">
-                            <iframe class="embed-responsive-item" src="//player.vimeo.com/video/104672627?color=fcfcfc"></iframe>
+                            <iframe class="embed-responsive-item" src="//player.vimeo.com/video/104672627?color=008cba"></iframe>
                         </div>
                     </div>
                 </div>
@@ -117,7 +123,7 @@
         <!-- end modal -->
         
 
-        <hr class="hidden-xs hidden-sm"/>
+        <br class="hidden-xs hidden-sm"/>
 
         <div class="row" id="contact">
             <div class="col-md-5 col-sm-12 col-xs-12">
@@ -129,45 +135,59 @@
                 </div>
                 <blockquote>
                     <address class="inline-block">
-                    <strong>{{ profile.firstname }}&nbsp;{{ profile.lastname}}</strong><br/>
-                    Canadian phone :<br/>
-                    <span class="glyphicon glyphicon-earphone"/>: 1 (514) 531-3944<br/>
-                    <a href="mailto:#">{{ profile.contact_email }}</a><br/>
-                    <small>For bookings or inquiries</small><br/>
-                </address>
+                        <strong>{{ profile.firstname }}&nbsp;{{ profile.lastname}}</strong><br/>
+                        Canadian phone :<br/>
+                        <span class="glyphicon glyphicon-earphone"/>: 1 (514) 531-3944<br/>
+                        <a href="mailto:#">{{ profile.contact_email }}</a><br/>
+                        <small>For bookings or inquiries</small><br/>
+                    </address>
                     Classes depending on availability,
                     <br/>Contact <a href="http://www.revelstokemountainresort.com">RMR</a> front desk for bookings
                     <br/>
-                    <span class="glyphicon glyphicon-earphone" />: 1 (250) 814-5060
+                    <span class="glyphicon glyphicon-earphone" />: 1 (250) 814-5060<br/>
                     <br/>
+                        
                 </blockquote>
             </div>
             <div class="col-md-7 col-sm-12 col-xs-12">
                 <img src="{{ STATIC_URL }}img/templeComp.jpg" width="100%"/>
             </div>
         </div>
-
-        <hr/>
-        
-        <div class="row">
-            <div class="col-lg-offset-3 col-lg-5">
-                <p class="text-center">
-                    Stay up to date with Sam and his adventures by submiting your email!
-                    We'll send you blog updates and updates on where Sam is skiing now so you can keep up, or try to catch up.
-                    <a href="{% url 'mailing-list' %}">Get News!</a>
-                </p>
+    </div>
+    
+    <br/>
+    
+    <div class="footer">
+        <div class="container">
+            
+            <br>
+            <div class="row">
+                <div class="col-lg-offset-3 col-lg-5">
+                    <p class="text-center">
+                        Stay up to date with Sam and his adventures by submiting your email!
+                        We'll send you blog updates and updates on where Sam is skiing now so you can keep up, or try to catch up.
+                        <a href="{% url 'mailing-list' %}">Get News!</a>
+                    </p>
+                </div>
+                <div class="col-lg-4 text-right">
+                    <a class="facebook" href="https://www.facebook.com/samuel.bergeron">
+                    </a>
+                    &nbsp;
+                    <a class="instagram" href="http://instagram.com/sam10thp?ref=badge">
+                    </a>
+                </div>
+                <br>
             </div>
+        
+        <hr>
+            <footer>
+                <p><small>&copy; Samuel Bergeron 2014</small></p>
+                <br><br>
+            </footer>
+            
         </div>
     </div>
-        
-        <hr/>
-
-    <div class="container invert">
-        <footer>
-            <p>&copy; Samuel Bergeron 2014</p>
-        </footer>
-    </div>
-
+    
 </body>
 
 </html>
