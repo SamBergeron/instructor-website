@@ -78,6 +78,13 @@
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
+<script type="text/javascript">
+    $(function() {
+        if ($.browser.msie) {
+            $('.modal').removeClass('fade');
+        }
+    });
+</script>
 
 <head>
     <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico" type="image/x-icon"/>
