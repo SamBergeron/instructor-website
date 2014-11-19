@@ -37,7 +37,7 @@ if (typeof jQuery === 'undefined') {
       WebkitTransition : 'webkitTransitionEnd',
       MozTransition    : 'transitionend',
       OTransition      : 'oTransitionEnd otransitionend',
-      transition       : 'transitionend'
+      transition       : 'transitionend',
     }
 
     for (var name in transEndEventNames) {
