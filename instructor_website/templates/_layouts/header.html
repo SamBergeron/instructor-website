@@ -2,16 +2,16 @@
 
 <!-- Le javascript -->
 <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>git 
 <script>
     window.jQuery || document.write('&lt;script src="{{ STATIC_URL }}js/jquery-1.7.2.min.js"&gt;&lt;\/script&gt;');
 </script>
 <!-- Bootstrap jQuery plugins compiled and minified -->
-<script src="{{ STATIC_URL }}js/bootstrap.min.js" />
+<script src="{{ STATIC_URL }}js/bootstrap.min.js" > </script>
 <script>
     $(document).ready(function() {
         $('.carousel').carousel({
-            interval: 4000
+            interval: 3000
         });
     });
 
@@ -26,6 +26,8 @@
         });
     });
 </script>
+
+<!-- MODAL SCRIPT -->
 <script>
     $(document).ready(function() {
         $(".modal").on('hidden.bs.modal', function(e) {
@@ -34,6 +36,8 @@
         });
     });
 </script>
+
+<!-- AUTO SCROLL SCRIPT -->
 <script>
     $(document).ready(function() {
         var hashTagActive = "";
