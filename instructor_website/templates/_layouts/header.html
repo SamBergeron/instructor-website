@@ -7,22 +7,12 @@
     window.jQuery || document.write('&lt;script src="{{ STATIC_URL }}js/jquery-1.7.2.min.js"&gt;&lt;\/script&gt;');
 </script>
 <!-- Bootstrap jQuery plugins compiled and minified -->
-<script src="{{ STATIC_URL }}js/bootstrap.min.js" > </script>
+<script src="{{ STATIC_URL }}js/bootstrap.min.js" /> </script>
+<!-- CAROUSEL SCRIPT -->
 <script>
     $(document).ready(function() {
         $('.carousel').carousel({
             interval: 3000
-        });
-    });
-
-    $(document).ready(function() {
-        $('.navbar li').click(function(e) {
-            $('.navbar li.active').removeClass('active');
-            var $this = $(this);
-            if (!$this.hasClass('active')) {
-                $this.addClass('active');
-            }
-            e.preventDefault();
         });
     });
 </script>
@@ -60,28 +50,35 @@
         });
     });
 </script>
-    <!-- Facebook SDK for functions -->
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+
+<!-- Facebook SDK for functions -->
+<div id="fb-root"></div>
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) 
+            return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+    (document, 'script', 'facebook-jssdk'));
 </script>
 
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'skiwithsam'; // required: replace example with your forum shortname
+<!-- DISQUS THREAD JS -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skiwithsam'; // required: replace example with your forum shortname
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<!-- Remove fade when in IE, known bug with bootstrap using modals-->
 <script type="text/javascript">
     $(function() {
         if ($.browser.msie) {
