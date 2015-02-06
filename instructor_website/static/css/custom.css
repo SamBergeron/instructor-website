@@ -59,9 +59,47 @@ a.instagram:hover {
     filter: hue-rotate(180deg);
 }
 
-,grayscale {
+.grayscale-hover:hover {
     vertical-align: central;
+    -webkit-transition: 500ms;
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
     filter: grayscale(100%);
+}
+
+ul.img-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+ 
+ul.img-list li {
+  display: inline-block;
+  margin: 0 1em 1em 0;
+  position: relative;
+}
+
+span.text-content {
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+}
+
+li:hover span.text-content {
+  opacity: 1;
+}
+ 
+span.text-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
 }
